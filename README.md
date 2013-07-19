@@ -1,5 +1,7 @@
 # JRuby Zk
 
+[![Gem Version](https://badge.fury.io/rb/jruby-zk.png)](http://badge.fury.io/rb/jruby-zk)
+
 _Another ZooKeeper Wrapper_
 
 JRuby Zk requires all the jar files for using ZooKeeper from JRuby.
