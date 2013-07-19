@@ -1,6 +1,8 @@
-# Jruby::Zk
+# JRuby Zk
 
-TODO: Write a gem description
+_Another ZooKeeper Wrapper_
+
+JRuby Zk requires all the jar files for using ZooKeeper from JRuby.
 
 ## Installation
 
@@ -18,7 +20,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+````ruby
+require 'jruby-zk'
+java_import org.apache.zookeeper.ZooKeeper
+````
+
+That's it. You now have access to ZooKeeper.
+
+## Simple Example
+
+````ruby
+require 'jruby-zk'
+java_import org.apache.zookeeper.ZooKeeper
+
+class DummyWatcher
+  include org.apache.zookeeper.Watcher
+end
+
+watcher = DummyWatcher.new
+
+zk = ZooKeeper.new('192.168.123.20:2181', 10000, watcher)
+
+zk.session_id      #=> 90002156548456448
+zk.session_timeout #=> 10000
+zk.state.to_s      #=> "CONNECTED"
+
+acl = Java::OrgApacheZookeeper::ZooDefs::Ids::OPEN_ACL_UNSAFE
+create_mode = Java::OrgApacheZookeeper::CreateMode::PERSISTENT
+
+zk.create('/zoo_test', nil, acl, create_mode) #=> "/zoo_test"
+zk.getChildren('/', false).to_a               #=> ["zoo_test", "zookeeper"]
+zk.delete('/zoo_test', -1)                    #=> nil
+zk.get_children('/', false).to_a              #=> ["zookeeper"]
+````
 
 ## Contributing
 
