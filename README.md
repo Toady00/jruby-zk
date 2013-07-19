@@ -4,6 +4,10 @@ _Another ZooKeeper Wrapper_
 
 JRuby Zk requires all the jar files for using ZooKeeper from JRuby.
 
+_Note about version_
+
+The version of this gem will reflect the version of zookeeper bundled with it. So if you are using v3.4.5 of this gem, then you are using v3.4.5 of zookeeper.
+
 ## Installation
 
 Add this line to your application's Gemfile:
