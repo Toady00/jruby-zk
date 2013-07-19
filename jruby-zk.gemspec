@@ -5,12 +5,12 @@ require 'jruby-zk/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "jruby-zk"
-  gem.version       = Jruby::Zk::VERSION
+  gem.version       = JRubyZk::VERSION
   gem.authors       = ["Brandon Dennis"]
   gem.email         = ["toady00@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Simple wrapper around ZooKeeper Jars for JRuby}
+  gem.homepage      = "https://github.com/Toady00/jruby-zk"
+  gem.summary       = %q(JRuby Zk includes the ZooKeeper jars and all the jars it depends on for zk clients.)
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
